@@ -213,7 +213,7 @@
             "kind": "PersistentVolumeClaim",
             "apiVersion": "v1",
             "metadata": {
-                "name": "${APPLICATION_NAME}"
+                "name": "jenkins-pvc"
             },
             "spec": {
                 "accessModes": [
@@ -221,7 +221,7 @@
                 ],
                 "resources": {
                     "requests": {
-                        "storage": "${VOLUME_CAPACITY}"
+                        "storage": "5Gi"
                     }
                 }
             }
@@ -302,7 +302,7 @@
                                 "volumeMounts": [
                                     {
                                         "name": "${APPLICATION_NAME}-data",
-                                        "mountPath": "/var/lib/jenkins"
+-                                       "mountPath": "/var/lib/jenkins"
                                     }
                                 ],
                                 "terminationMessagePath": "/dev/termination-log",
@@ -316,9 +316,9 @@
                         ],
                         "volumes": [
                             {
-                                "name": "${APPLICATION_NAME}-data",
+                                "name": "pv0004",
                                 "persistentVolumeClaim": {
-                                    "claimName": "${APPLICATION_NAME}"
+                                    "claimName": "jenkins-pvc"
                                 }
                             }
                         ],
