@@ -14,6 +14,7 @@ RUN yum install -y git tar zip unzip which java-1.8.0-openjdk-devel && \
       && mv /usr/share/apache-maven-$MAVEN_VERSION /usr/share/maven \
       && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
 
+RUN subscription-manager repos --enable rhel-7-server-optional-rpms
 RUN yum install -y xorg-x11-server-Xvfb
 
 # Copy script
