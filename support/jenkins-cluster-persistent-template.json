@@ -302,7 +302,7 @@
                                 "volumeMounts": [
                                     {
                                         "name": "${APPLICATION_NAME}-data",
--                                       "mountPath": "/var/lib/jenkins"
+                                        "mountPath": "/var/lib/jenkins"
                                     }
                                 ],
                                 "terminationMessagePath": "/dev/termination-log",
