@@ -213,7 +213,7 @@
             "kind": "PersistentVolumeClaim",
             "apiVersion": "v1",
             "metadata": {
-                "name": "jenkinspvc"
+                "name": "${APPLICATION_NAME}"
             },
             "spec": {
                 "accessModes": [
@@ -221,7 +221,7 @@
                 ],
                 "resources": {
                     "requests": {
-                        "storage": "5Gi"
+                        "storage": "${VOLUME_CAPACITY}"
                     }
                 }
             }
@@ -316,9 +316,9 @@
                         ],
                         "volumes": [
                             {
-                                "name": "pv0004",
+                                "name": "${APPLICATION_NAME}-data",
                                 "persistentVolumeClaim": {
-                                    "claimName": "jenkinspvc"
+                                    "claimName": "${APPLICATION_NAME}"
                                 }
                             }
                         ],
