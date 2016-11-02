@@ -213,7 +213,7 @@
             "kind": "PersistentVolumeClaim",
             "apiVersion": "v1",
             "metadata": {
-                "name": "jenkins-pvc"
+                "name": "jenkinspvc"
             },
             "spec": {
                 "accessModes": [
@@ -318,7 +318,7 @@
                             {
                                 "name": "pv0004",
                                 "persistentVolumeClaim": {
-                                    "claimName": "jenkins-pvc"
+                                    "claimName": "jenkinspvc"
                                 }
                             }
                         ],
