@@ -1,9 +1,7 @@
 FROM registry.access.redhat.com/openshift3/jenkins-1-rhel7:1.609-15
 
 ADD config-cloud.xml credentials.xml /opt/openshift/
-
-ADD /var/lib/jenkins/userContent/selenium-server-standalone-2.45.0.jar /var/lib/jenkins/userContent/
-ADD /home/thager/netreg_auto_deploy/Selenium_Testing/ /var/lib/jenkins/Selenium_Testing/
+ADD ssh://git@spork.spawar.navy.mil/thager/netreg_auto_deploy/tree/master/Selenium_Testing/ /var/lib/jenkins/Selenium_Testing/
 
 # Install additional plugins and modify files
 RUN mkdir -p /opt/openshift/plugins && \
