@@ -18,7 +18,7 @@ RUN yum install -y yum-utils
 RUN yum-config-manager --enable rhel-7-server-optional-rpms
 RUN yum install -y xorg-x11-server-Xvfb
 
-RUN yum install nc
+RUN yum install -y nc
 
 # Copy script
 COPY jenkins-slave.sh /opt/jenkins-slave/bin/
