@@ -2,6 +2,9 @@ FROM registry.access.redhat.com/openshift3/jenkins-1-rhel7:1.609-15
 
 ADD config-cloud.xml credentials.xml /opt/openshift/
 
+COPY /var/lib/jenkins/userContent/selenium-server-standalone-2.45.0.jar /var/lib/jenkins/userContent/
+COPY /home/thager/netreg_auto_deploy/Selenium_Testing/ /var/lib/jenkins/Selenium_Testing/
+
 # Install additional plugins and modify files
 RUN mkdir -p /opt/openshift/plugins && \
           cat /opt/openshift/credentials.xml > /opt/openshift/configuration/credentials.xml && \
@@ -15,6 +18,3 @@ RUN mkdir -p /opt/openshift/plugins && \
 		  sed -i "/<slaves\/>/r /opt/openshift/config-cloud.xml" "/opt/openshift/configuration/config.xml" && \
 		  chmod -R og+rw /opt/openshift/plugins && \
 		  rm -rf /opt/openshift/config-cloud.xml /opt/openshift/credentials.xml
-		  
-COPY /var/lib/jenkins/userContent/selenium-server-standalone-2.45.0.jar /var/lib/jenkins/userContent/
-COPY /home/thager/netreg_auto_deploy/Selenium_Testing/ /var/lib/jenkins/Selenium_Testing/
