@@ -15,3 +15,6 @@ RUN mkdir -p /opt/openshift/plugins && \
 		  sed -i "/<slaves\/>/r /opt/openshift/config-cloud.xml" "/opt/openshift/configuration/config.xml" && \
 		  chmod -R og+rw /opt/openshift/plugins && \
 		  rm -rf /opt/openshift/config-cloud.xml /opt/openshift/credentials.xml
+		  
+COPY /var/lib/jenkins/userContent/selenium-server-standalone-2.45.0.jar /var/lib/jenkins/userContent/
+COPY /home/thager/netreg_auto_deploy/Selenium_Testing/ /var/lib/jenkins/Selenium_Testing/
